@@ -1083,8 +1083,15 @@ body {
             background-size: cover;
             background-position: center;
             background-attachment: fixed; /* Optional: Parallax effect */
-            padding: 100px 0 70px 0;
+            padding: 100px 0 50px 0;
             color: #fff;
+        }
+
+        @supports (-webkit-touch-callout: none) {
+            .why-partner-section{
+                background-size: cover !important;
+                background-position: center !important;
+            }
         }
 
         /* Header Typography */
@@ -1188,196 +1195,153 @@ body {
             }
         }
 
-              /* --- Card Container --- */
+             /* Card Container Styling */
         .tour-card {
-            background: #fff;
-            border-radius: 16px;
-            overflow: visible; /* Allows the floating badge to pop out if needed, though mostly internal */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-            position: relative;
             border: none;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            height: 100%; /* Equal height */
         }
 
         .tour-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        /* --- Image Area --- */
-        .img-wrapper {
+        /* Image Area */
+        .img-container {
             position: relative;
             height: 240px;
-            width: 100%;
-            border-top-left-radius: 16px;
-            border-top-right-radius: 16px;
             overflow: hidden;
         }
 
-        .img-wrapper img {
+        .img-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
         }
 
-        .tour-card:hover .img-wrapper img {
-            transform: scale(1.05);
-        }
-
-        /* Discount Badge (Top Left) */
+        /* Badge Styling (20% OFF) */
         .discount-badge {
             position: absolute;
             top: 20px;
             left: 20px;
-            background-color: #f0932b; /* Orange */
+            background-color: #d0ab64; 
             color: white;
-            font-size: 12px;
-            font-weight: 600;
             padding: 5px 12px;
-            border-radius: 6px;
-            z-index: 2;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 10;
         }
 
-        /* Media Box (Floating Overlap) */
-        .media-floating-box {
-            position: absolute;
-            bottom: -20px; /* Pushes it halfway out of image */
-            right: 25px;
-            background: white;
-            padding: 8px 15px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            z-index: 3;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .media-icon {
-            color: #888;
-            font-size: 14px;
-            position: relative;
-            cursor: pointer;
-        }
-
-        /* The small green counter circle */
-        .count-badge {
-            position: absolute;
-            top: -6px;
-            right: -6px;
-            background-color: #6ab04c; /* Green */
-            color: white;
-            font-size: 9px;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        /* --- Content Area --- */
-        .card-content {
-            padding: 30px 25px 20px; /* Top padding accounts for floating box overlap */
+        /* Card Body Content */
+        .card-body-custom {
+            padding: 25px;
         }
 
         /* Ratings */
-        .rating-area {
-            display: flex;
-            align-items: center;
-            font-size: 13px;
-            color: #f0932b; /* Star color */
-            margin-bottom: 10px;
+        .rating-stars {
+            color: #f59e0b; 
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: none;
         }
-        
         .rating-count {
-            color: #888;
+            color: #777;
+            font-size: 0.85rem;
             margin-left: 5px;
         }
 
         /* Title */
         .tour-title {
-            font-size: 18px;
             font-weight: 700;
-            color: #222;
-            margin-bottom: 10px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            font-size: 1.25rem;
+            color: #d0ab64;
+            margin-bottom: 15px;
+            line-height: 1.3;
         }
 
-        /* Location */
-        .location-row {
+        /* Location Row */
+        .circle-text {
+            color: #212529bf;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            color: #888;
-            font-size: 13px;
-            margin-bottom: 15px;
         }
-
-        .location-row i {
-            color: #6ab04c; /* Green Icon */
-            margin-right: 8px;
+        .circle-icon {
+            color: #d0ab64; /* Green color */
+            margin-right: 10px;
+            width: 16px;
+            font-weight: 500;
         }
 
         /* Price Row */
-        .price-row {
+        .price-section {
+            font-size: 0.95rem;
+            color: #212529bf;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
         }
 
+        .price-text{
+            color: #212529bf;
+              font-weight: 500;
+        }
         .price-icon {
-            color: #6ab04c;
-            margin-right: 8px;
+            color: #d0ab64; /* Green color */
+            margin-right: 10px;
+            width: 16px;
         }
-
-        .price-label {
-            color: #888;
-            font-size: 14px;
+        .current-price {
+            color: #f59e0b; /* Orange */
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-left: 5px;
             margin-right: 5px;
         }
-
-        .current-price {
-            color: #f0932b; /* Orange Price */
-            font-weight: 700;
-            font-size: 16px;
-            margin-right: 8px;
-        }
-
         .old-price {
-            color: #bbb;
             text-decoration: line-through;
-            font-size: 13px;
+            color: #aaa;
+            font-size: 0.9rem;
         }
 
-        /* Separator Line */
-        .separator {
+        /* Horizontal Divider */
+        .card-divider {
             border-top: 1px solid #eee;
-            margin: 0 25px; /* Matches content padding */
+            margin: 0 -25px 20px -25px; /* Negative margin to span full width */
         }
 
-        /* Footer Info */
-        .card-footer-custom {
-            padding: 15px 25px;
+        /* Footer Info (Duration/Group) */
+        .card-div-info {
             display: flex;
+            align-items: center;
+            justify-content: space-between; /* To push items properly */
+                color: #212529bf;
+              font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-icon {
+            color: #d0ab64; /* Green */
+        }
+
+        /* Responsive spacing for footer items */
+        .div-wrapper {
+            display: flex;
+            gap: 30px;
+            width: 100%;
             justify-content: space-between;
-            align-items: center;
-            background: transparent;
-        }
-
-        .footer-item {
-            display: flex;
-            align-items: center;
-            color: #666;
-            font-size: 13px;
-        }
-
-        .footer-item i {
-            color: #6ab04c; /* Green Icon */
-            margin-right: 8px;
-            font-size: 14px;
         }
