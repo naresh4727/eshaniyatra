@@ -1345,3 +1345,239 @@ body {
             width: 100%;
             justify-content: space-between;
         }
+    .listView{
+      display: inline-block; /* <-- important for transform to show */
+      background-color: #d0ab64;
+      border: 1px solid #d0ab64;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      text-decoration: none;
+      transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+      /* optional for smoother rendering */
+      will-change: transform;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    .listView:hover{
+      transform: translateY(-5px); /* -2px itna subtle hota hai, -6px zyada visible */
+      background-color: #e2dac5;
+      border-color: #e2dac5;
+      color: #555;
+    }
+
+  .testimonial-card {
+            background: #fff;
+            border-radius: 25px; /* Large rounded corners */
+            padding: 40px 30px;
+            margin: 15px; /* Spacing between slides */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03); /* Soft shadow */
+            position: relative;
+            height: 100%; /* Ensures equal height */
+            border: 1px solid rgba(0,0,0,0.01);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.06);
+        }
+
+        /* Header: Image + Name + Quote Icon */
+        .card-header-custom {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .user-img-wrapper {
+            position: relative;
+            margin-right: 15px;
+        }
+
+        .user-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            /* White border effect around image if needed, mostly clean in design */
+            padding: 3px;
+            background: #fff; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .user-info h5 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #222;
+            margin: 0;
+        }
+
+        .user-info span {
+            color: #7abaff; /* Light Blue text */
+            font-size: 0.9rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        /* The Hollow Quote Icon (SVG styling) */
+        .quote-icon {
+            margin-left: auto; /* Pushes icon to the far right */
+            width: 45px;
+            height: 45px;
+            fill: none;
+            stroke: #999;
+            stroke-width: 1.5;
+            opacity: 0.6;
+        }
+
+        /* Body Text */
+        .review-text {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* 
+         * SLICK SLIDER CUSTOMIZATION 
+         * To match dots and spacing
+         */
+        
+        /* Ensure slides are equal height */
+        .slick-track {
+            display: flex !important;
+        }
+        .slick-slide {
+            height: inherit !important;
+            display: flex !important;
+            justify-content: center;
+        }
+        .slick-slide > div {
+            width: 100%;
+        }
+
+        /* Custom Dots */
+        .slick-dots {
+            bottom: -40px;
+        }
+
+        .slick-dots li {
+            margin: 0 5px;
+        }
+
+        .slick-dots li button:before {
+            font-size: 12px;
+            color: #222;
+            opacity: 0.2;
+        }
+
+        .slick-dots li.slick-active button:before {
+            color: #6bbcf2; /* Active Blue Color */
+            opacity: 1;
+        }
+
+            .testimonial-card {
+            background: #ffffff;
+            border-radius: 20px; /* Corners round kiye hain */
+            padding: 35px 30px;
+            margin: 15px 10px; /* 10px Left/Right margin taaki gap kam ho jaye */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft shadow like image */
+            height: 100%; /* Equal height ke liye */
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Header Section inside Card */
+        .card-header-flex {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Image Styling */
+        .user-img-wrapper img {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%; /* Circle */
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid #fff; /* Image ke aas paas white border */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Name and Title */
+        .user-info h5 {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #222;
+            margin: 0;
+        }
+
+        .user-info span {
+            color: #7abaff; /* Sky Blue Color match kiya hai */
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        /* Hollow Quote Icon (Outline wala) */
+        .quote-icon-svg {
+            margin-left: auto; /* Right side push karne ke liye */
+            width: 40px;
+            height: 40px;
+            fill: none;       /* Andar se khali */
+            stroke: #bbb;     /* Grey outline */
+            stroke-width: 1.5;
+        }
+
+        /* Review Text */
+        .review-text {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* 
+         * SLICK SLIDER FIXES 
+         */
+        
+        /* Slide ke andar gap maintain karne ke liye wrapper */
+        .slick-slide {
+            padding: 0 5px; /* Thoda sa padding taaki chipke nahi */
+            height: inherit !important; /* Equal height fix */
+        }
+
+        .slick-track {
+            display: flex !important; 
+        }
+
+        /* Dots Styling */
+        .slick-dots {
+            bottom: -40px;
+        }
+
+        .slick-dots li button:before {
+            font-size: 10px;
+            opacity: 0.3;
+            color: #333;
+        }
+
+        .slick-dots li.slick-active button:before {
+            color: #6bbcf2; /* Active dot blue */
+            opacity: 1;
+        }
+
+        .slick-initialized .slick-slide {
+    display: block !important;
+    padding: 30px;
+}
+        
