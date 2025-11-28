@@ -145,7 +145,7 @@ body {
     /* padding: 1.5rem 1rem; */
 }
 
-.offcanvas-header .img-fluid.logochange {
+.responsiveLogo {
     width: 4rem;
 }
 
