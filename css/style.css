@@ -98,7 +98,7 @@ body {
     border: none;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     animation: fadeAndSlideIn 0.3s ease-out forwards;
-    background-color: #eae3d1;
+    background-color: #f8f7f4;
     border-radius: 8px;
     padding: 0.5rem 0;
     min-width: 200px;
@@ -126,7 +126,7 @@ body {
 }
 
 .dropdown-item:hover {
-    background-color: #f0ead6;
+    background-color: #f0ead6 !important; 
     color: #a07d4a;
 }
 
@@ -142,7 +142,11 @@ body {
 
 .offcanvas-header {
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 1.5rem 1rem;
+    /* padding: 1.5rem 1rem; */
+}
+
+.offcanvas-header .img-fluid.logochange {
+    width: 4rem;
 }
 
 .offcanvas-title {
@@ -757,10 +761,12 @@ body {
 
 @supports (-webkit-touch-callout: none) {
     .why-partner-section {
+        background-attachment: scroll !important;
         background-size: cover !important;
         background-position: center !important;
     }
 }
+
 
 .section-header {
     text-align: center;
@@ -1102,4 +1108,8 @@ section.testimonialDiv {
 
 .testimonialHeader h1.display-4.fw-bold {
     color: #fff;
+}
+
+.social-item-link{
+    display: none;
 }
