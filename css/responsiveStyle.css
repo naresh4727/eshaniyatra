@@ -149,6 +149,11 @@
         text-align: center;
         font-weight: 500;
     }
+
+    .enquiry-card { margin-top: 0; border-radius: 0; }
+    .form-panel { border-left: none; border-top: 1px solid #eee; }
+    .enquiry-title { font-size: 2rem; }
+    .enquiry-section { height: 350px; }
 }
 
 

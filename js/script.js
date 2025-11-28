@@ -96,6 +96,74 @@ $(document).ready(function () {
         $('.testimonial-slider-wrapper').slick('slickNext');
     });
 
+    const today = new Date().toISOString().split('T')[0];
+
+    $('#startDate').attr('min', today);
+
+    $('#startDate').on('change blur', function () {
+        const startVal = $(this).val();
+        if (startVal) {
+            $('#endDate').attr('min', startVal);
+
+            if ($('#endDate').val() && $('#endDate').val() < startVal) {
+                $('#endDate').val('');
+                $('#endDate').attr('type', 'text');
+            }
+        }
+    });
+
+    $('#enquiryForm').on('submit', function (e) {
+        e.preventDefault();
+        let isValid = true;
+
+        function validateField(selector) {
+            const field = $(selector);
+            const value = field.val();
+
+            if (!value || value === "") {
+                field.addClass('is-invalid');
+                field.next('.error-feedback').slideDown(200);
+                return false;
+            } else {
+                field.removeClass('is-invalid');
+                field.next('.error-feedback').slideUp(200);
+                return true;
+            }
+        }
+
+        isValid = validateField('#fullName') && isValid;
+        isValid = validateField('#email') && isValid;
+        isValid = validateField('#phone') && isValid;
+        isValid = validateField('#adventureType') && isValid;
+        isValid = validateField('#startDate') && isValid;
+        isValid = validateField('#endDate') && isValid;
+        isValid = validateField('#destination') && isValid;
+        isValid = validateField('#travelers') && isValid;
+
+        if (isValid) {
+            let btn = $('.btn-enquiry');
+            let originalText = btn.html();
+            btn.html('<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...');
+
+            setTimeout(function () {
+                $('#enquiryForm')[0].reset();
+
+                $('#startDate, #endDate').attr('type', 'text');
+
+                btn.html(originalText);
+
+                const toastEl = document.getElementById('successToast');
+                const toast = new bootstrap.Toast(toastEl);
+                toast.show();
+            }, 1500);
+        }
+    });
+
+    $('input, select, textarea').on('input change focus', function () {
+        $(this).removeClass('is-invalid');
+        $(this).next('.error-feedback').hide();
+    });
+
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -149,7 +217,3 @@ document.addEventListener("DOMContentLoaded", function () {
     fadeElements.forEach(el => fadeObserver.observe(el));
 
 });
-
-
-
-
