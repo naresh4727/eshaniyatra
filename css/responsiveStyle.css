@@ -126,6 +126,10 @@
         justify-content: center;
     }
 
+    .offcanvasLastDiv{
+        display: block;
+    }
+
     .social-item-link a{
         color: #555;
     }
@@ -137,6 +141,13 @@
 
     ul.navbar-nav.justify-content-end.flex-grow-1.pe-3 {
         justify-content: flex-start !important;
+    }
+
+    .offcanvasLastDiv p{
+        font-size: 16px;
+        color: #555;
+        text-align: center;
+        font-weight: 500;
     }
 }
 

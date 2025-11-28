@@ -98,4 +98,58 @@ $(document).ready(function () {
 
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    const counters = document.querySelectorAll('.counter');
+    const counterOptions = { threshold: 0.6 };
+
+    const startCounter = (entry) => {
+        let counter = entry.target;
+        let target = +counter.getAttribute("data-target");
+        let count = 0;
+        let speed = target / 100;
+
+        counter.style.opacity = 1;
+
+        const updateCount = () => {
+            if (count < target) {
+                count += speed;
+                counter.innerText = Math.ceil(count);
+                requestAnimationFrame(updateCount);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        updateCount();
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounter(entry);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, counterOptions);
+
+    counters.forEach(counter => counterObserver.observe(counter));
+
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const fadeOptions = { threshold: 0.4 };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, fadeOptions);
+
+    fadeElements.forEach(el => fadeObserver.observe(el));
+
+});
+
+
+
 
