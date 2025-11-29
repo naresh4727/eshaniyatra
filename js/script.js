@@ -112,10 +112,11 @@ $(document).ready(function () {
         }
     });
 
-    $('#enquiryForm').on('submit', function (e) {
+        $('#enquiryForm').on('submit', function (e) {
         e.preventDefault();
         let isValid = true;
 
+        // Validation Function
         function validateField(selector) {
             const field = $(selector);
             const value = field.val();
@@ -131,6 +132,7 @@ $(document).ready(function () {
             }
         }
 
+        // Check Fields
         isValid = validateField('#fullName') && isValid;
         isValid = validateField('#email') && isValid;
         isValid = validateField('#phone') && isValid;
@@ -140,25 +142,37 @@ $(document).ready(function () {
         isValid = validateField('#destination') && isValid;
         isValid = validateField('#travelers') && isValid;
 
+        // If Valid
         if (isValid) {
             let btn = $('.btn-enquiry');
             let originalText = btn.html();
+            
+            // Loading State
             btn.html('<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...');
+            btn.prop('disabled', true);
 
             setTimeout(function () {
+                // Form Reset
                 $('#enquiryForm')[0].reset();
 
-                $('#startDate, #endDate').attr('type', 'text');
-
+                // Button Reset
                 btn.html(originalText);
+                btn.prop('disabled', false);
 
+                // Toast Notification Show
                 const toastEl = document.getElementById('successToast');
-                const toast = new bootstrap.Toast(toastEl);
-                toast.show();
+                if (toastEl) {
+                    const toast = new bootstrap.Toast(toastEl);
+                    toast.show();
+                } else {
+                    alert("Enquiry Sent Successfully!");
+                }
             }, 1500);
         }
     });
 
+    // --- 4. INPUT CLEANUP ---
+    // Jab user type kare to red error hatayein
     $('input, select, textarea').on('input change focus', function () {
         $(this).removeClass('is-invalid');
         $(this).next('.error-feedback').hide();

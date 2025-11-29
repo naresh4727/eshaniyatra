@@ -83,7 +83,7 @@
     }
 
     .left-section {
-        padding: 20px 35px 45px 35px;
+        padding: 20px 35px 45px 35px !important;
     }
 
     /* .card-img-wrap, .card-content {

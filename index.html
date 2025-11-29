@@ -1186,7 +1186,7 @@
                                             <div class="error-feedback">Please select an adventure type.</div>
                                         </div>
 
-                                        <div class="col-md-6">
+                                        <!-- <div class="col-md-6">
                                             <input type="text" class="form-control" id="startDate"
                                                 placeholder="Start Date" onfocus="(this.type='date')"
                                                 onblur="(this.value ? this.type='date' : this.type='text')" required>
@@ -1197,7 +1197,16 @@
                                                 onfocus="(this.type='date')"
                                                 onblur="(this.value ? this.type='date' : this.type='text')" required>
                                             <div class="error-feedback">End date must be after start date.</div>
-                                        </div>
+                                        </div> -->
+                                        <div class="col-md-6">
+    <!-- "required" attribute zaroori hai CSS trick ke liye -->
+    <input type="date" class="form-control date-input-styled" id="startDate" placeholder="Start Date" required>
+    <div class="error-feedback">Select a valid start date.</div>
+</div>
+<div class="col-md-6">
+    <input type="date" class="form-control date-input-styled" id="endDate" placeholder="End Date" required>
+    <div class="error-feedback">End date must be after start date.</div>
+</div>
 
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" id="destination"
