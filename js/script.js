@@ -96,21 +96,32 @@ $(document).ready(function () {
         $('.testimonial-slider-wrapper').slick('slickNext');
     });
 
-    const today = new Date().toISOString().split('T')[0];
+   // --- DATE LOGIC SETUP ---
+const today = new Date().toISOString().split('T')[0];
 
-    $('#startDate').attr('min', today);
+// 1. Start Date ka Min set karein (Aaj ki date)
+$('#startDate').attr('min', today);
 
-    $('#startDate').on('change blur', function () {
-        const startVal = $(this).val();
-        if (startVal) {
-            $('#endDate').attr('min', startVal);
+// 2. End Date ka Min set karein (Default: Aaj ki date taaki calendar hamesha khule)
+$('#endDate').attr('min', today);
 
-            if ($('#endDate').val() && $('#endDate').val() < startVal) {
-                $('#endDate').val('');
-                $('#endDate').attr('type', 'text');
-            }
+// 3. Jab Start Date change ho, tabhi End Date ka Min update karein
+$('#startDate').on('change', function () {
+    const startVal = $(this).val();
+    
+    if (startVal) {
+        // Start date select hone par End date ka min update karein
+        $('#endDate').attr('min', startVal);
+        
+        // Agar End Date pehle se selected hai aur wo Start Date se pehle ki hai, to use clear karein
+        if ($('#endDate').val() && $('#endDate').val() < startVal) {
+            $('#endDate').val('');
         }
-    });
+    } else {
+        // Agar user Start Date clear kar de, to End Date ka min wapis Today kar do
+        $('#endDate').attr('min', today);
+    }
+});
 
         $('#enquiryForm').on('submit', function (e) {
         e.preventDefault();
