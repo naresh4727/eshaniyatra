@@ -96,38 +96,30 @@ $(document).ready(function () {
         $('.testimonial-slider-wrapper').slick('slickNext');
     });
 
-   // --- DATE LOGIC SETUP ---
-const today = new Date().toISOString().split('T')[0];
+    const today = new Date().toISOString().split('T')[0];
 
-// 1. Start Date ka Min set karein (Aaj ki date)
-$('#startDate').attr('min', today);
+    $('#startDate').attr('min', today);
 
-// 2. End Date ka Min set karein (Default: Aaj ki date taaki calendar hamesha khule)
-$('#endDate').attr('min', today);
+    $('#endDate').attr('min', today);
 
-// 3. Jab Start Date change ho, tabhi End Date ka Min update karein
-$('#startDate').on('change', function () {
-    const startVal = $(this).val();
-    
-    if (startVal) {
-        // Start date select hone par End date ka min update karein
-        $('#endDate').attr('min', startVal);
-        
-        // Agar End Date pehle se selected hai aur wo Start Date se pehle ki hai, to use clear karein
-        if ($('#endDate').val() && $('#endDate').val() < startVal) {
-            $('#endDate').val('');
+    $('#startDate').on('change', function () {
+        const startVal = $(this).val();
+
+        if (startVal) {
+            $('#endDate').attr('min', startVal);
+
+            if ($('#endDate').val() && $('#endDate').val() < startVal) {
+                $('#endDate').val('');
+            }
+        } else {
+            $('#endDate').attr('min', today);
         }
-    } else {
-        // Agar user Start Date clear kar de, to End Date ka min wapis Today kar do
-        $('#endDate').attr('min', today);
-    }
-});
+    });
 
-        $('#enquiryForm').on('submit', function (e) {
+    $('#enquiryForm').on('submit', function (e) {
         e.preventDefault();
         let isValid = true;
 
-        // Validation Function
         function validateField(selector) {
             const field = $(selector);
             const value = field.val();
@@ -143,7 +135,6 @@ $('#startDate').on('change', function () {
             }
         }
 
-        // Check Fields
         isValid = validateField('#fullName') && isValid;
         isValid = validateField('#email') && isValid;
         isValid = validateField('#phone') && isValid;
@@ -153,24 +144,19 @@ $('#startDate').on('change', function () {
         isValid = validateField('#destination') && isValid;
         isValid = validateField('#travelers') && isValid;
 
-        // If Valid
         if (isValid) {
             let btn = $('.btn-enquiry');
             let originalText = btn.html();
-            
-            // Loading State
+
             btn.html('<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...');
             btn.prop('disabled', true);
 
             setTimeout(function () {
-                // Form Reset
                 $('#enquiryForm')[0].reset();
 
-                // Button Reset
                 btn.html(originalText);
                 btn.prop('disabled', false);
 
-                // Toast Notification Show
                 const toastEl = document.getElementById('successToast');
                 if (toastEl) {
                     const toast = new bootstrap.Toast(toastEl);
@@ -182,11 +168,17 @@ $('#startDate').on('change', function () {
         }
     });
 
-    // --- 4. INPUT CLEANUP ---
-    // Jab user type kare to red error hatayein
     $('input, select, textarea').on('input change focus', function () {
         $(this).removeClass('is-invalid');
         $(this).next('.error-feedback').hide();
+    });
+
+    $('.accordion-button').on('click', function () {
+        $('.accordion-item').removeClass('active-card');
+
+        if ($(this).attr('aria-expanded') === "true") {
+            $(this).closest('.accordion-item').addClass('active-card');
+        }
     });
 
 });

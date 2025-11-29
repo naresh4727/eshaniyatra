@@ -176,6 +176,18 @@
     .ios-date-fix {
         font-size: 16px !important;
     }
+
+    .title-lg {
+        margin-bottom: 15px;
+    }
+
+    .faq-img-col {
+        height: 300px;
+    }
+
+    .faq-content-col {
+        padding: 30px;
+    }
 }
 
 
@@ -307,6 +319,10 @@
 
     .testimonial-slider-wrapper.slick-initialized.slick-slider {
         margin-top: 1rem;
+    }
+
+    .title-lg {
+        font-size: 2rem;
     }
 }
 
