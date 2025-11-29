@@ -1390,3 +1390,59 @@ span.badge.bg-light.text-dark.px-3.py-2.rounded-pill{
 .date-input-styled:required:valid::before {
     display: none;
 }
+
+
+
+.ios-date-fix {
+    position: relative;
+    height: 55px;
+    padding-left: 20px;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    
+    /* iOS Specifics to remove default look */
+    -webkit-appearance: none;
+    appearance: none;
+    
+    /* Default Text Alignment Left (iOS centers it by default) */
+    text-align: left;
+    
+    /* Default Text Color Transparent (Hides "dd/mm/yyyy") */
+    color: transparent; 
+    
+    /* Vertical Alignment Fix */
+    display: flex;
+    align-items: center;
+}
+
+/* --- Placeholder Trick using ::before --- */
+.ios-date-fix::before {
+    content: attr(placeholder); /* HTML placeholder text uthayega */
+    position: absolute;
+    color: #999;
+    left: 20px;
+    pointer-events: none; /* User iske aar-paar click kar sake */
+    background: #fff; /* Background white taaki overlap clean dikhe */
+    width: 80%; /* Width taaki click area block na ho */
+    white-space: nowrap;
+}
+
+/* --- Jab User Click kare (Focus) YA Date Select ho jaye (Valid) --- */
+.ios-date-fix:focus,
+.ios-date-fix:valid {
+    color: #555; /* Text wapis Black/Grey ho jayega */
+}
+
+/* Jab Date select ho jaye, to Placeholder ko GAYAB kar do */
+.ios-date-fix:focus::before,
+.ios-date-fix:valid::before {
+    content: "" !important;
+    display: none !important; /* Hamesha ke liye hide */
+}
+
+/* iOS Safari Icon Adjustment (Optional) */
+.ios-date-fix::-webkit-date-and-time-value {
+    text-align: left;
+}

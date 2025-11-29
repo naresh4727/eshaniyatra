@@ -1199,15 +1199,15 @@
                                             <div class="error-feedback">End date must be after start date.</div>
                                         </div> -->
                                         <div class="col-md-6">
-    <!-- "required" attribute zaroori hai CSS trick ke liye -->
-    <input type="date" class="form-control date-input-styled" id="startDate" placeholder="Start Date" required>
-    <div class="error-feedback">Select a valid start date.</div>
-</div>
-<div class="col-md-6">
-    <input type="date" class="form-control date-input-styled" id="endDate" placeholder="End Date" required>
-    <div class="error-feedback">End date must be after start date.</div>
-</div>
+                                            <!-- ID aur Placeholder same rakhein, bas class check karein -->
+                                            <input type="date" class="form-control ios-date-fix" id="startDate" placeholder="Start Date" required>
+                                            <div class="error-feedback">Select a valid start date.</div>
+                                        </div>
 
+                                        <div class="col-md-6">
+                                            <input type="date" class="form-control ios-date-fix" id="endDate" placeholder="End Date" required>
+                                            <div class="error-feedback">End date must be after start date.</div>
+                                        </div>
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" id="destination"
                                                 placeholder="Preferred Destination" required>
