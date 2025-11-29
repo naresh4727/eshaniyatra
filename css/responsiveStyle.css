@@ -154,6 +154,14 @@
     .form-panel { border-left: none; border-top: 1px solid #eee;}
     .enquiry-title { font-size: 2rem; }
     .enquiry-section { height: 350px; }
+    input, 
+    select, 
+    textarea, 
+    .form-control, 
+    .form-select,
+    .ios-date-fix {
+        font-size: 16px !important; 
+    }
 }
 
 
