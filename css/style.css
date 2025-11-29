@@ -1227,6 +1227,7 @@ section.testimonialDiv {
     background-color: #fbfbfb;
     padding: 50px 40px;
     border-left: 1px solid #eee;
+    overflow-x: hidden;
 }
 
 .form-control,
