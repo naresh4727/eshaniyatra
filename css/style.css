@@ -1415,8 +1415,10 @@ span.badge.bg-light.text-dark.px-3.py-2.rounded-pill{
     color: transparent; 
     
     /* Vertical Alignment Fix */
-    /* display: flex; */
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: normal;
 }
 
 /* --- Placeholder Trick using ::before --- */
