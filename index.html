@@ -919,6 +919,16 @@
                 </div>
             </div>
         </section>
+        <section class="video-hero-section">
+            <div class="videoHero-overlay"></div>
+            <div class="videoHero-content">
+                <h1 class="videoHero-main-heading">Rishikesh Highlights</h1>
+                <h4 class="sub-heading">Experience the Divinity</h4>
+                <a href="#" class="play-btn" data-bs-toggle="modal" data-bs-target="#videoModal">
+                    <i class="fa-solid fa-play ps-1"></i>
+                </a>
+            </div>
+        </section>
         <section class="faq">
             <div class="container">
                 <div class="row justify-content-center">
@@ -1359,6 +1369,18 @@
                 </div>
                 <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
                     aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <video id="localVideo" controls>
+                        <source src="https://cdn.pixabay.com/video/2025/05/18/279876_large.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </div>
     </div>

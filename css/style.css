@@ -779,6 +779,7 @@ body {
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .gradient-text {
@@ -792,6 +793,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .feature-item {
@@ -812,6 +814,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-bottom: 25px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
 }
 
@@ -825,6 +828,7 @@ body {
     font-weight: 600;
     margin-bottom: 15px;
     color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .feature-desc {
@@ -832,6 +836,7 @@ body {
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.6;
     max-width: 90%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .feature-item:hover .icon-circle {
@@ -1153,7 +1158,7 @@ section.testimonialDiv {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .enquiry-content {
@@ -1511,4 +1516,127 @@ span.badge.bg-light.text-dark.px-3.py-2.rounded-pill {
 
 section.faq {
     padding: 60px 0;
+}
+
+
+.video-hero-section {
+    background: url('../images/Rishikesh.jpg') no-repeat center center/cover;
+    height: 90vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 60px 0 40px 0;
+}
+
+.videoHero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(32, 32, 50, 0.6);
+    z-index: 1;
+}
+
+.videoHero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 20px;
+}
+
+.videoHero-main-heading {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.sub-heading {
+    font-size: 1.2rem;
+    color: #d0ab64;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.play-btn {
+    width: 80px;
+    height: 80px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+}
+
+.play-btn:hover {
+    background: #fff;
+    color: #d0ab64;
+    transform: scale(1.1);
+}
+
+.play-btn::before,
+.play-btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    animation: pulse-border 2s infinite;
+}
+
+.play-btn::after {
+    animation-delay: 0.5s;
+}
+
+@keyframes pulse-border {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+.modal-content {
+    background-color: transparent;
+    border: none;
+}
+
+.modal-body {
+    padding: 0;
+    position: relative;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#localVideo {
+    width: 100%;
+    display: block;
+}
+
+.modal-backdrop.show {
+    opacity: 0.65 !important;
 }
