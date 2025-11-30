@@ -188,6 +188,10 @@
     .faq-content-col {
         padding: 30px;
     }
+
+    .footer-section {
+        text-align: left;
+    }
 }
 
 
@@ -310,6 +314,19 @@
 
     i.fa-solid.fa-play.ps-1 {
         font-size: 20px;
+    }
+
+    .footer-bottom {
+        margin-top: 35px;
+        text-align: center;
+    }
+
+    .copyright-text {
+        margin-bottom: 10px;
+    }
+
+    .footer-logo .img-fluid {
+        width: 6rem;
     }
 }
 

@@ -183,14 +183,37 @@ $(document).ready(function () {
 
     var videoElement = $('#localVideo')[0];
 
-     $('#videoModal').on('shown.bs.modal', function () {
-        videoElement.play(); 
+    $('#videoModal').on('shown.bs.modal', function () {
+        videoElement.play();
     });
 
     $('#videoModal').on('hide.bs.modal', function () {
         videoElement.pause();
         videoElement.currentTime = 0;
-        $('.play-btn').blur(); 
+        $('.play-btn').blur();
+    });
+
+    $('#newsletterForm').on('submit', function (e) {
+
+        e.preventDefault();
+
+        var emailInput = $('#subEmail');
+        var submitBtn = $('.newsletter-btn');
+        var originalIcon = '<i class="fa-solid fa-arrow-right"></i>';
+
+        if (emailInput.val() !== "") {
+
+            submitBtn.html('<i class="fa-solid fa-check"></i>');
+
+            const toastLiveExample = document.getElementById('liveToast');
+            const toast = new bootstrap.Toast(toastLiveExample);
+            toast.show();
+
+            setTimeout(function () {
+                submitBtn.html(originalIcon);
+                emailInput.val('');
+            }, 2000);
+        }
     });
 
 });
