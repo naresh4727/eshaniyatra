@@ -183,13 +183,14 @@ $(document).ready(function () {
 
     var videoElement = $('#localVideo')[0];
 
-    $('#videoModal').on('shown.bs.modal', function () {
-        videoElement.play();
+     $('#videoModal').on('shown.bs.modal', function () {
+        videoElement.play(); 
     });
 
     $('#videoModal').on('hide.bs.modal', function () {
         videoElement.pause();
         videoElement.currentTime = 0;
+        $('.play-btn').blur(); 
     });
 
 });
