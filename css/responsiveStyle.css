@@ -83,7 +83,8 @@
     }
 
     .left-section {
-        padding: 20px 35px 45px 35px !important;
+        padding: 48px 35px !important;
+        margin-bottom: 1.5rem;
     }
 
     /* .card-img-wrap, .card-content {
@@ -191,6 +192,30 @@
 
     .footer-section {
         text-align: left;
+    }
+
+    .destinationSection{
+        padding: 48px 0 40px;
+    }
+
+    section.great-outdoors-section.py-5{
+        padding-bottom: 0 !important;
+    }
+
+    .slider-wrapper{
+        padding-bottom: 48px;
+    }
+
+    .video-hero-section{
+        margin: 48px 0 0 0;
+    }
+
+    section.faq{
+        padding: 60px 0 15px 0;
+    }
+
+    .enquiryMainDiv .container.mb-5 {
+        margin-bottom: 1rem !important;
     }
 }
 
